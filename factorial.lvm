@@ -1,5 +1,5 @@
 #include	"vmmappings.h"
-205
+25
 PUSH	15	//0
 STORE	0
 LOAD	0	//2
