@@ -58,6 +58,7 @@ int main(void)
 		case LOAD:
 		case LSHFT:
 		case RSHFT:
+		case JMP:
 		case IFEQ:
 		case IFNEQ:
 		case IFZ:
