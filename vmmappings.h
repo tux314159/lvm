@@ -2,7 +2,7 @@
  *
  * After that, statements are given, usually 1 per line. Unless you like
  * your code as an unmaintainable mess... Well, anything written using
- * this is already an unmaintanable mess, but trust me, it'll be even
+ * this is already an unmaintainable mess, but trust me, it'll be even
  * worse.
  *
  * Registers are 0-indexed.
@@ -10,45 +10,45 @@
  * Program line numbers are also 0-indexed.
  *
  * The two example files factorial.lvm and sample.lvm are example
- * (suprise!) files to try out: on Linux/OSX/SOMEBSD/SOMENIX
+ * (surprise!) files to try out: on Linux/OSX/SOMEBSD/SOMENIX
  * ./run-prog.sh factorial.sh
  * or
  * ./run-prog.sh sample.sh
- * to try them out. On M$ Windoze, you have to preproccess the files
+ * to try them out. On M$ Windoze, you have to preprocess the files
  * manually then feed them to .\lvm by hand (or copy-paste). You
  * could also write a CMD/Powershell script to automate it.
  *
  * Script files typically have an .lvm extension, although anything will do.
  * The shell script run-prog.sh takes one argument and gives it to the C
- * preproccessor, and pipes the output to the lvm binary. You can also do
+ * preprocessor, and pipes the output to the lvm binary. You can also do
  * that manually. But since it uses CPP, you can exploit:
  * - comments
  * - macros
  * - includes
- * and other preproccessor features.
+ * and other preprccessor features.
  *
  * You see, being lazy has its benefits :-P
  *
- * If you don't have a C preproccessor, or don't want to invoke it for some
+ * If you don't have a C preprocessor, or don't want to invoke it for some
  * reason, you can refer to this file. Instead of using instruction labels
  * (like NOP, PUSH, POP etc.) use their associated numbers (like 0 for NOP,
  * 1 for PUSH, 2 for POP etc.). They are all put out quite clearly in this
  * file.
  *
- * It is generally good practice to lable line numbers every 5 lines, as
+ * It is generally good practice to label line numbers every 5 lines, as
  * you might get confused (the only form of flow control is JMPing around...)
  *
  *
  * The default number of registers is 10, but can be changed by recompiling
  * with -DREGNO=<whatever>.
  *
- * The default stack size is 100000, but can be changed bt recompiling with
+ * The default stack size is 100000, but can be changed by recompiling with
  * -DMAX_STACK_SZ=<whatever>.
  *
  * The default program size limit is 100000 statements, but can be changed
  * by recompiling with -DMAX_PROG_LEN=<whatever>.
  *
- * WARING: Unkown instructions are silently ignored.
+ * WARING: Unknown instructions are silently ignored.
  */
 
 #define NOP	0 /* Does nothing. Example usage:
@@ -88,7 +88,7 @@
 #define DIV 	9 /* Pops the stack twice, then pushes their quotient onto the stack. Example usage:
 		     DIV
 		     */
-#define REM 	10 /* Pops the stack twice, then pushes their the remainder of divesion onto
+#define REM 	10 /* Pops the stack twice, then pushes their the remainder of division onto
 		      the stack. Example usage:
 		      REM
 		      */
@@ -133,12 +133,12 @@
 		      otherwise. Example usage:
 		      IFEQ 92
 		      */
-#define IFZ 	20 /* Pops the the stack, then jumps to the line specified by its argument if it
-		      is 0. does nothing else otherwise. Example usage:
+#define IFZ 	20 /* Pops the stack, then jumps to the line specified by its argument if it
+		      is 0. Does nothing else otherwise. Example usage:
 		      IFZ 63
 		      */
-#define IFNZ 	21 /* Pops the the stack, then jumps to the line specified by its argument if it
-		      is not 0. does nothing else otherwise. Example usage:
+#define IFNZ 	21 /* Pops the stack, then jumps to the line specified by its argument if it
+		      is not 0. Does nothing else otherwise. Example usage:
 		      IFNZ 854
 		      */
 
@@ -149,10 +149,10 @@
 #define PRINC 	23 /* Prints out the top value on the stack as a character. Example usage:
 		      PRINC
 		      */
-#define POPP 	24 /* Pops the the stack and prints it. Example usage:
+#define POPP 	24 /* Pops the stack and prints it. Example usage:
 		      POPP
 		      */
-#define POPPC 	25 /* Pops the the stack and prints it as a character. Example usage:
+#define POPPC 	25 /* Pops the stack and prints it as a character. Example usage:
 		      POPPC
 		      */
 
