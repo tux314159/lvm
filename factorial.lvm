@@ -1,15 +1,14 @@
 #include "vmmappings.h"
 13
-PUSH 15
+PUSH 15 //0
 STORE 0
 LOAD 0 //2
 PUSH 1
 SUB
-STORE 0
+STORE 0 //5
 IFZ 11
 LOAD 0
 MUL
-PUSH 0
-IFZ 2
-PRINT //11
+JMP 2
+PRINT //10
 DONE
