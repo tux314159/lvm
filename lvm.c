@@ -219,9 +219,17 @@ int main(void)
 			CHECK_STACK_U;
 			printf("%lld\n", vm_stack[stackptr-1]);
 			break;
+		case PRINC:
+			CHECK_STACK_U;
+			printf("%c", (char)vm_stack[stackptr-1]);
+			break;
 		case POPP:
 			CHECK_STACK_U;
 			printf("%lld\n", vm_stack[--stackptr]);
+			break;
+		case POPPC:
+			CHECK_STACK_U;
+			printf("%c", (char)vm_stack[--stackptr]);
 			break;
 
 		case DONE:

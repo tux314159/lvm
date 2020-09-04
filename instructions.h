@@ -34,7 +34,9 @@ enum impl_instr {
 
 	/* I/O */
 	PRINT, /* print top of stack */
+	PRINC,
 	POPP, /* print top of stack and pop */
+	POPPC,
 
 	DONE
 };

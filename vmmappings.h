@@ -31,6 +31,8 @@
 
 /* I/O */
 #define PRINT 	22
-#define POPP 	23
+#define PRINC 	23
+#define POPP 	24
+#define POPPC 	25
 
-#define DONE 	24
+#define DONE 	26
