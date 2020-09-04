@@ -1,0 +1,12 @@
+#include "vmmappings.h"
+9
+PUSH 5
+POPS 0
+PUSH 6
+PUSH 8
+LOAD 0
+//
+ADD
+MUL
+POPP
+DONE
