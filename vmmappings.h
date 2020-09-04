@@ -23,13 +23,14 @@
 #define RSHFT	16
 
 /* Flow control */
-#define IFEQ 	17
-#define IFNEQ 	18
-#define IFZ 	19
-#define IFNZ 	20
+#define JMP 	17
+#define IFEQ 	18
+#define IFNEQ 	19
+#define IFZ 	20
+#define IFNZ 	21
 
 /* I/O */
-#define PRINT 	21
-#define POPP 	22
+#define PRINT 	22
+#define POPP 	23
 
-#define DONE 	23
+#define DONE 	24

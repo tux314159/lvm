@@ -26,6 +26,7 @@ enum impl_instr {
 	RSHFT, /* pop once, shift popped by arg */
 
 	/* Flow control */
+	JMP, /* jump to line arg */
 	IFEQ, /* pop twice, jump to line arg if equal */
 	IFNEQ,
 	IFZ, /* pop once, jump to line arg if zero */

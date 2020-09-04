@@ -181,6 +181,8 @@ int main(void)
 			break;
 
 		/* Flow control */
+		case JMP:
+			cinstr = pinstrs + cinstr->arg1 - 1;
 		case IFEQ:
 			CHECK_STACK_U;
 			t = vm_stack[--stackptr];
