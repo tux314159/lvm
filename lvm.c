@@ -183,6 +183,7 @@ int main(void)
 		/* Flow control */
 		case JMP:
 			cinstr = pinstrs + cinstr->arg1 - 1;
+			break;
 		case IFEQ:
 			CHECK_STACK_U;
 			t = vm_stack[--stackptr];
