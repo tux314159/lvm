@@ -1,8 +1,43 @@
-/* Statements are given, 1 per line.
- * It is generally good practice to lable line numbers every 5 lines, as
- * you might get confused(the only form of flow control is JMPing around...)
+/* The first line contains the number of statements.
  *
- * The first line contains the number of statements.
+ * After that, statements are given, usually 1 per line. Unless you like
+ * your code as an unmaintainable mess... Well, anything written using
+ * this is already an unmaintanable mess, but trust me, it'll be even
+ * worse.
+ *
+ * Registers are 0-indexed.
+ *
+ * Program line numbers are also 0-indexed.
+ *
+ * The two example files factorial.lvm and sample.lvm are example
+ * (suprise!) files to try out: on Linux/OSX/SOMEBSD/SOMENIX
+ * ./run-prog.sh factorial.sh
+ * or
+ * ./run-prog.sh sample.sh
+ * to try them out. On M$ Windoze, you have to preproccess the files
+ * manually then feed them to .\lvm by hand (or copy-paste). You
+ * could also write a CMD/Powershell script to automate it.
+ *
+ * Script files typically have an .lvm extension, although anything will do.
+ * The shell script run-prog.sh takes one argument and gives it to the C
+ * preproccessor, and pipes the output to the lvm binary. You can also do
+ * that manually. But since it uses CPP, you can exploit:
+ * - comments
+ * - macros
+ * - includes
+ * and other preproccessor features.
+ *
+ * You see, being lazy has its benefits :-P
+ *
+ * If you don't have a C preproccessor, or don't want to invoke it for some
+ * reason, you can refer to this file. Instead of using instruction labels
+ * (like NOP, PUSH, POP etc.) use their associated numbers (like 0 for NOP,
+ * 1 for PUSH, 2 for POP etc.). They are all put out quite clearly in this
+ * file.
+ *
+ * It is generally good practice to lable line numbers every 5 lines, as
+ * you might get confused (the only form of flow control is JMPing around...)
+ *
  *
  * The default number of registers is 10, but can be changed by recompiling
  * with -DREGNO=<whatever>.
@@ -11,7 +46,9 @@
  * -DMAX_STACK_SZ=<whatever>.
  *
  * The default program size limit is 100000 statements, but can be changed
- * by recompiling with DMAX_PROG_LEN=<whatever>.
+ * by recompiling with -DMAX_PROG_LEN=<whatever>.
+ *
+ * WARING: Unkown instructions are silently ignored.
  */
 
 #define NOP	0 /* Does nothing. Example usage:
