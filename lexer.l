@@ -5,6 +5,10 @@ enum yytokentype {
 	INSTRUCTION = 258,
 	ARG_NUM,
 	ARG_CHAR,
+
+	COMMENT,
+	REG,
+
 	NO_INSTR,
 	MAL_CHAR
 };
@@ -14,6 +18,7 @@ union {
 	short regno;
 	long long arg_num;
 	char arg_char;
+	char *reg_str;
 } yylval;
 
 %}
@@ -59,6 +64,9 @@ union {
 [0-9]+			{ yylval.arg_num = atoi(yytext); return ARG_NUM; }
 \'.\'			{ yylval.arg_char = yytext[1]; return ARG_CHAR; }
 
+\/\*.*\*\/		{ return COMMENT; }
+"%"...			{ yylval.reg_str = yytext+1; return REG; }
+
 [ \t]			{ }
 
 \'.{2,}\'		{ return MAL_CHAR; }
@@ -83,6 +91,14 @@ int main(int argc, char **argv)
 		case ARG_CHAR:
 			printf(" [character argument: %c]", yylval.arg_char);
 			break;
+
+		case COMMENT:
+			printf(" [comment]");
+			break;
+		case REG:
+			printf(" [register %%%s]", yylval.reg_str);
+			break;
+
 		case NO_INSTR:
 			printf(" [no such instruction]");
 			break;
